@@ -131,3 +131,71 @@ PO TO, ABY szybko reagować i zapobiegać uszkodzeniom upraw.
 JAKO właściciel gospodarstwa
 CHCIAŁBYM mieć dostęp do raportów z danymi historycznymi
 PO TO, ABY planować efektywnie przyszłe działania inwestycyjne i operacyjne.
+
+
+
+USECASE 
+
+Use Case: Zarządzanie Nawadnianiem na Podstawie Danych o Wilgotności Gleby
+
+Cel:
+Zapewnienie optymalnego nawadniania upraw poprzez automatyczne monitorowanie wilgotności gleby oraz umożliwienie interwencji rolnika w celu aktywacji systemu nawadniania, gdy poziom wilgotności spada poniżej ustalonego progu.
+
+Główny aktor:
+
+    Rolnik
+
+System:
+
+    AgroSense – system monitorowania warunków upraw i sterowania nawadnianiem
+
+Warunki wstępne (Preconditions):
+
+    System AgroSense jest zainstalowany i skonfigurowany na polu uprawnym.
+    Czujniki (wilgotności, temperatury, natężenia światła) działają poprawnie i przesyłają dane do centralnego systemu.
+    Użytkownik (rolnik) ma dostęp do dashboardu/aplikacji mobilnej AgroSense.
+
+Główny scenariusz (Basic Flow):
+
+    Zbieranie danych:
+    System AgroSense ciągle zbiera dane z czujników monitorujących wilgotność gleby, temperaturę oraz natężenie światła.
+
+    Wykrycie spadku wilgotności:
+    Gdy wartość wilgotności gleby spada poniżej ustalonego progu, system generuje automatyczny alert.
+
+    Powiadomienie:
+    Alert jest wysyłany do rolnika za pośrednictwem aplikacji mobilnej lub dashboardu webowego.
+
+    Weryfikacja danych:
+    Rolnik loguje się do systemu i sprawdza aktualne odczyty z czujników, aby potwierdzić obniżoną wilgotność gleby.
+
+    Decyzja o interwencji:
+    Na podstawie otrzymanych informacji rolnik decyduje, czy należy uruchomić system nawadniania.
+
+    Włączenie nawadniania:
+    Rolnik wydaje polecenie uruchomienia nawadniania poprzez interfejs systemu.
+
+    Aktywacja systemu:
+    System AgroSense wysyła komendę do odpowiedniego urządzenia IoT (sterownika nawadniania), które aktywuje system nawadniania.
+
+    Monitorowanie procesu:
+    Podczas nawadniania system kontynuuje monitorowanie odczytów czujników, aby śledzić wzrost wilgotności gleby.
+
+    Zakończenie nawadniania:
+    Gdy poziom wilgotności osiągnie optymalny poziom, system automatycznie (lub na polecenie rolnika) dezaktywuje system nawadniania.
+
+    Potwierdzenie wykonania:
+    Rolnik otrzymuje informację o zakończeniu procesu nawadniania, a system zapisuje wszystkie zdarzenia w logach.
+
+Scenariusze alternatywne (Alternate Flows):
+
+    Brak komunikacji z czujnikami:
+    Jeśli system nie otrzymuje danych z czujników, wysyłany jest komunikat o błędzie, sugerujący sprawdzenie połączeń lub stanu czujników.
+
+    Błąd w aktywacji nawadniania:
+    Jeśli system nie może wysłać polecenia lub urządzenie IoT nie odpowiada, rolnik otrzymuje alert o błędzie oraz zalecenia dotyczące dalszej diagnostyki.
+
+Warunki końcowe (Postconditions):
+
+    Gleba jest odpowiednio nawodniona i wilgotność osiągnęła optymalny poziom.
+    Wszystkie operacje zostały zarejestrowane w systemie, co umożliwia analizę efektywności nawadniania w przyszłości.
